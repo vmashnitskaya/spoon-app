@@ -1,0 +1,18 @@
+.recipes{
+  display: flex;
+  padding: 20px;
+  .categories{
+    flex-basis: 20%;
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    li{
+      a {
+        text-decoration: none;
+      }
+    }
+  }
+  .recipes-list{
+    margin-left: 20px;
+  }
+}
