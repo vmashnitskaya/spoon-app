@@ -35,7 +35,7 @@ const authSlice = createSlice({
             return { ...state, error: message, loading: false };
         },
         logout() {
-            return initial;
+            return { ...initial };
         },
     },
 });

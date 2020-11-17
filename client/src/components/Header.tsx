@@ -1,27 +1,29 @@
 import React, { FunctionComponent, useState } from 'react';
 import { AnyAction, Dispatch } from 'redux';
 import { connect } from 'react-redux';
-import { AppBar, Button, IconButton, Menu, MenuItem, Toolbar } from '@material-ui/core';
+import { AppBar, Avatar, Button, IconButton, Menu, MenuItem, Toolbar } from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles';
-import { createImageFromInitials } from '../utils';
-import { UserData, UserInput } from '../redux/auth/authInterfaces';
+import { useHistory } from 'react-router';
+import { UserData } from '../redux/auth/authInterfaces';
 import './Header.scss';
 import AuthDialog from './AuthDialog';
 import { logout } from '../redux/auth/authSlice';
-import authActions from '../redux/auth/authActions';
 
 const useStyles = makeStyles({
     appBar: {
-        padding: '5px 40px',
+        padding: '0 40px',
         display: 'flex',
         justifyContent: 'space-between',
         alignItems: 'center',
         flexDirection: 'row',
+        boxShadow: 'none',
+        borderBottom: '1px solid #d9d9d9',
     },
     logoButton: {
         '&:hover': {
             backgroundColor: 'transparent',
         },
+        padding: '6px',
     },
 });
 
@@ -31,6 +33,7 @@ interface HeaderProps {
 }
 
 const Header: FunctionComponent<HeaderProps> = ({ userData, logoutUser }) => {
+    const history = useHistory();
     const classes = useStyles();
     const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null);
     const open = Boolean(anchorEl);
@@ -52,8 +55,13 @@ const Header: FunctionComponent<HeaderProps> = ({ userData, logoutUser }) => {
         setAnchorEl(null);
     };
 
-    const handleLogout = () => {
+    const handleLinksClick = (url: string) => {
+        history.push(url);
         handleClose();
+    };
+
+    const handleLogout = () => {
+        handleLinksClick('/');
         localStorage.removeItem('userData');
         logoutUser();
     };
@@ -81,14 +89,7 @@ const Header: FunctionComponent<HeaderProps> = ({ userData, logoutUser }) => {
                             color="inherit"
                             size="medium"
                         >
-                            <img
-                                id="preview"
-                                src={createImageFromInitials(
-                                    40,
-                                    `${userData.first_name[0]}${userData.last_name[0]}`
-                                )}
-                                alt="profile-pic"
-                            />
+                            <Avatar>{`${userData.first_name[0]}${userData.last_name[0]}`}</Avatar>
                         </IconButton>
                         <Menu
                             id="menu-appbar"
@@ -105,8 +106,12 @@ const Header: FunctionComponent<HeaderProps> = ({ userData, logoutUser }) => {
                             open={open}
                             onClose={handleClose}
                         >
-                            <MenuItem onClick={handleClose}>Profile</MenuItem>
-                            <MenuItem onClick={handleClose}>My account</MenuItem>
+                            <MenuItem onClick={() => handleLinksClick('/profile')}>
+                                Profile
+                            </MenuItem>
+                            <MenuItem onClick={() => handleLinksClick('/myRecipes')}>
+                                My recipes
+                            </MenuItem>
                             <MenuItem onClick={handleLogout}>Log out</MenuItem>
                         </Menu>
                     </div>

@@ -1,7 +1,12 @@
 import React, { FunctionComponent } from 'react';
+import { Typography } from '@material-ui/core';
 
 const NoMatch: FunctionComponent = () => {
-    return <h3>Page not found</h3>;
+    return (
+        <Typography color="primary" align="center" variant="h6" display="block" gutterBottom>
+            Page not found
+        </Typography>
+    );
 };
 
 export default NoMatch;
