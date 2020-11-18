@@ -1,6 +1,6 @@
 import React, { ChangeEvent, FunctionComponent } from 'react';
 import { InputLabel, MenuItem, Select } from '@material-ui/core';
-import { SelectOptions } from '../../redux/recipes/recipesInterfaces';
+import { SelectOptions } from '../../../redux/recipes/recipesInterfaces';
 
 interface SelectFieldInputProps {
     label?: string;

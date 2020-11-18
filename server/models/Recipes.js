@@ -5,7 +5,8 @@ const schema = new Schema({
     title: {type: String, required: true},
     category: {type: String, required: true},
     created_at: {type: Date, default: Date.now},
-    amount: {type: String, required: true},
+    amount: {type: Number, required: true},
+    time: {type: String, required: true},
     summary: {type: String, required: true},
     advice: [
         {type: String}],

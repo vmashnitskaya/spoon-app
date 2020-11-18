@@ -2,7 +2,7 @@ import React, { FunctionComponent, useEffect, useState } from 'react';
 import { Divider } from '@material-ui/core';
 import Categories from './Categories';
 import RecipesList from './RecipesList';
-import useQuery from './useQuery';
+import useQuery from '../useQuery';
 import './Recipes.scss';
 
 const Recipes: FunctionComponent = () => {

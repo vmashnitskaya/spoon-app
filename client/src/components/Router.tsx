@@ -10,11 +10,11 @@ import authSelectors from '../redux/auth/authSelectors';
 import { UserData } from '../redux/auth/authInterfaces';
 import Header from './Header';
 import NoMatch from './NoMatch';
-import Recipes from './Recipes';
+import Recipes from './mainPage/Recipes';
 import Progress from './Progress';
-import Profile from './Profile';
-import MyRecipes from './MyRecipes';
-import Create from './createRecipe/Create';
+import Profile from './regUserPages/Profile';
+import MyRecipes from './regUserPages/MyRecipes';
+import Create from './regUserPages/createRecipe/Create';
 
 interface RouterProps {
     userData: UserData;

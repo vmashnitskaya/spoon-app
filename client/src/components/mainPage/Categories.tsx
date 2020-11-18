@@ -3,9 +3,9 @@ import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { Typography } from '@material-ui/core';
 import makeStyles from '@material-ui/core/styles/makeStyles';
-import { RootState } from '../redux/rootReducer';
-import recipesSelectors from '../redux/recipes/recipesSelectors';
-import { SelectOptions } from '../redux/recipes/recipesInterfaces';
+import { RootState } from '../../redux/rootReducer';
+import recipesSelectors from '../../redux/recipes/recipesSelectors';
+import { SelectOptions } from '../../redux/recipes/recipesInterfaces';
 
 interface CategoriesProps {
     categories: SelectOptions[];

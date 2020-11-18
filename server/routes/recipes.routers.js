@@ -5,15 +5,15 @@ const router = Router();
 
 router.post('/create', auth, async (req, res) => {
     try {
-        const {title, category,time, amount, summary, advice, author, ingredients} = req.body;
+        const {title, category,time, amount,created_at, summary, advice, author, ingredients,approved, instructions} = req.body;
 
-        const appDataUnit = new Recipes({
-            title, category,time, amount, summary, advice, author, ingredients, author_id: req.user.userId
+        const recipe = new Recipes({
+            title, category,time, amount, created_at, summary, advice, author, ingredients,instructions, approved, author_id: req.user.userId
         });
 
-        await appDataUnit.save();
+        await recipe.save();
 
-        res.status(201).json({ data: appDataUnit, message: 'The item is created.' });
+        res.status(201).json({ data: recipe, message: 'The recipe is created.' });
     } catch (e) {
         res.status(500).json({ message: 'Something went wrong, try again later' });
     }

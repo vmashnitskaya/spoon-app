@@ -1,11 +1,11 @@
-import React, { ChangeEvent, FunctionComponent } from 'react';
+import React, { ChangeEvent, FunctionComponent, useState } from 'react';
 import { Chip, IconButton } from '@material-ui/core';
 import ClearIcon from '@material-ui/icons/Clear';
 import makeStyles from '@material-ui/core/styles/makeStyles';
 import { connect } from 'react-redux';
-import { SelectOptions } from '../../redux/recipes/recipesInterfaces';
-import recipesSelectors from '../../redux/recipes/recipesSelectors';
-import { RootState } from '../../redux/rootReducer';
+import { SelectOptions } from '../../../redux/recipes/recipesInterfaces';
+import recipesSelectors from '../../../redux/recipes/recipesSelectors';
+import { RootState } from '../../../redux/rootReducer';
 import { Ingredient } from './formStructureInterface';
 import TextNumberFieldInput from './TextNumberFieldInput';
 import SelectFieldInput from './SelectFieldInput';
