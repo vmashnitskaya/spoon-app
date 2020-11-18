@@ -37,7 +37,7 @@ interface IngredientsInputProps {
     el: Ingredient;
     index: number;
     handleIngredientChange: (ingredient: Ingredient, index: number) => void;
-    handleDeleteIngredient: (index: number) => void;
+    handleDelete: (index: number, field: string) => void;
 }
 
 const IngredientsInput: FunctionComponent<IngredientsInputProps> = ({
@@ -45,7 +45,7 @@ const IngredientsInput: FunctionComponent<IngredientsInputProps> = ({
     el,
     index,
     handleIngredientChange,
-    handleDeleteIngredient,
+    handleDelete,
 }) => {
     const classes = useStyles();
 
@@ -80,13 +80,14 @@ const IngredientsInput: FunctionComponent<IngredientsInputProps> = ({
             />
             <SelectFieldInput
                 className={classes.controlMeasure}
-                label="Measure"
+                label=""
                 value={el.measure}
                 required={false}
+                name="measure"
                 handleChange={(e: ChangeEvent<{ value: unknown }>) => handleChange(e, 'measure')}
                 options={measures}
             />
-            <IconButton onClick={() => handleDeleteIngredient(index)}>
+            <IconButton onClick={() => handleDelete(index, 'ingredients')}>
                 <ClearIcon />
             </IconButton>
         </div>

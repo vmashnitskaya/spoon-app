@@ -3,13 +3,13 @@ import { InputLabel, MenuItem, Select } from '@material-ui/core';
 import { SelectOptions } from '../../redux/recipes/recipesInterfaces';
 
 interface SelectFieldInputProps {
-    label: string;
+    label?: string;
     required: boolean;
     options: SelectOptions[];
     handleChange: (e: ChangeEvent<{ value: unknown }>) => void;
     className?: any;
     value: string;
-    name?: string;
+    name: string;
 }
 
 const SelectFieldInput: FunctionComponent<SelectFieldInputProps> = ({
@@ -23,7 +23,7 @@ const SelectFieldInput: FunctionComponent<SelectFieldInputProps> = ({
 }) => {
     return (
         <>
-            {name && name.length && <InputLabel htmlFor={name}>{label}</InputLabel>}
+            {label && label.length && <InputLabel htmlFor={name}>{label}</InputLabel>}
             <Select
                 onChange={(e) => handleChange(e)}
                 required={required}

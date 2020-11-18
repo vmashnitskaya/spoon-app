@@ -7,4 +7,5 @@ export interface SelectOptions {
 export interface InitialState {
     categories: SelectOptions[];
     measures: SelectOptions[];
+    timeUnits: SelectOptions[];
 }

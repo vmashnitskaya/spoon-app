@@ -1,12 +1,20 @@
 form{
   display: flex;
   flex-direction: column;
-  .ingredients{
+  .amounts{
+    display: flex;
+    justify-content: space-around;
+    .time{
+      display: flex;
+    }
+  }
+  .input-wrapper{
     display: flex;
     justify-content: space-between;
     .list{
       display: flex;
       flex-direction: column;
+      width: 70%;
     }
     button{
       align-self: flex-end;

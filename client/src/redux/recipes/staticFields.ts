@@ -22,4 +22,9 @@ const measures = [
     { label: 'can', name: 'can' },
 ];
 
-export default { categories, measures };
+const timeUnits = [
+    { label: 'min', name: 'min' },
+    { label: 'h', name: 'h' },
+];
+
+export default { categories, measures, timeUnits };

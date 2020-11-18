@@ -5,6 +5,7 @@ import staticFields from './staticFields';
 const initial: InitialState = {
     categories: staticFields.categories,
     measures: staticFields.measures,
+    timeUnits: staticFields.timeUnits,
 };
 
 const recipesSlice = createSlice({

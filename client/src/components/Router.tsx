@@ -25,7 +25,7 @@ interface RouterProps {
 const useStyles = makeStyles(() => ({
     main: () => ({
         backgroundColor: blueGrey[50],
-        height: '88%',
+        flex: '1 1 auto',
     }),
     paper: () => ({
         padding: 20,

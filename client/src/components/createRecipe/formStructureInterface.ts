@@ -12,4 +12,5 @@ export interface FormStructureInterface {
     advice: string;
     instructions: string[];
     ingredients: Ingredient[];
+    time: Array<string>;
 }
